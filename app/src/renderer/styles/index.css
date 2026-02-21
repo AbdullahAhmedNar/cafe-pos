@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 30 25% 50%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 30 25% 50%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    direction: rtl;
+  }
+  
+  html {
+    direction: rtl;
+  }
+  
+  /* تحسين الخطوط العربية */
+  .font-arabic {
+    font-family: 'Cairo', system-ui, sans-serif;
+  }
+  
+  .font-english {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+/* ألوان الكافيه المخصصة */
+.bg-cafe-gradient {
+  background: linear-gradient(135deg, #d4894a 0%, #a45d36 100%);
+}
+
+.text-cafe-primary {
+  color: #d4894a;
+}
+
+.text-cafe-secondary {
+  color: #a45d36;
+}
+
+.border-cafe-primary {
+  border-color: #d4894a;
+}
+
+/* تحسينات للواجهة العربية */
+.rtl-flip {
+  transform: scaleX(-1);
+}
+
+/* تخصيص Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* تحسين الأزرار */
+.btn-cafe {
+  @apply bg-cafe-500 hover:bg-cafe-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+}
+
+.btn-cafe-outline {
+  @apply border-2 border-cafe-500 text-cafe-500 hover:bg-cafe-500 hover:text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+}
+
+/* تحسين البطاقات */
+.card-cafe {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4;
+}
+
+/* تحسين الجداول */
+.table-cafe {
+  @apply w-full border-collapse;
+}
+
+.table-cafe th {
+  @apply bg-gray-50 dark:bg-gray-800 text-right p-3 border-b border-gray-200 dark:border-gray-700 font-semibold;
+}
+
+.table-cafe td {
+  @apply p-3 border-b border-gray-100 dark:border-gray-800;
+}
+
+.table-cafe tbody tr:hover {
+  @apply bg-gray-50 dark:bg-gray-800;
+}
+
+/* تحسين النماذج */
+.form-group {
+  @apply mb-4;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2;
+}
+
+.form-input {
+  @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-cafe-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100;
+}
+
+.form-input:focus {
+  @apply outline-none ring-2 ring-cafe-500 border-transparent;
+}
+
+/* تحسين الإشعارات */
+.toast-success {
+  @apply bg-green-500 text-white;
+}
+
+.toast-error {
+  @apply bg-red-500 text-white;
+}
+
+.toast-warning {
+  @apply bg-yellow-500 text-white;
+}
+
+.toast-info {
+  @apply bg-blue-500 text-white;
+}
+
+/* تحسين الأيقونات */
+.icon-sm {
+  @apply w-4 h-4;
+}
+
+.icon-md {
+  @apply w-5 h-5;
+}
+
+.icon-lg {
+  @apply w-6 h-6;
+}
+
+.icon-xl {
+  @apply w-8 h-8;
+}
+
+/* تحسين الشبكة */
+.grid-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.grid-dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* تحسين الرسوم المتحركة */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* تحسين الطباعة */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+  
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* تحسين الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .grid-products {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  
+  .grid-dashboard {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* تحسين الوضع المظلم */
+.dark .bg-white {
+  @apply bg-gray-900;
+}
+
+.dark .text-black {
+  @apply text-white;
+}
+
+.dark .border-gray-200 {
+  @apply border-gray-700;
+}
+
+/* تحسين التركيز للوصولية */
+.focus-visible:focus {
+  @apply outline-none ring-2 ring-cafe-500 ring-offset-2 ring-offset-white dark:ring-offset-gray-900;
+}
+
+/* إصلاح تداخل القائمة الجانبية */
+.sidebar-fixed {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 50;
+  width: 15rem; /* 240px */
+}
+
+@media (min-width: 1024px) {
+  .sidebar-fixed {
+    width: 16rem; /* 256px */
+  }
+}
+
+.main-content {
+  margin-right: 0;
+  transition: margin-right 0.3s ease-in-out;
+}
+
+@media (min-width: 1024px) {
+  .main-content {
+    margin-right: 16rem; /* 256px */
+  }
+}
+
+/* إصلاح تداخل المحتوى */
+.content-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* إصلاح الهيدر */
+.header-fixed {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: white;
+}
+
+.dark .header-fixed {
+  background: #111827;
+}
+
+/* إصلاح النوافذ المنبثقة */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.modal-content {
+  position: relative;
+  z-index: 101;
+}
